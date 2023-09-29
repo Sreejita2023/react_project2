@@ -1,16 +1,24 @@
+import React from "react"
+import { useState } from "react"
 import { filterData } from "../data"
+import Cards from "./Cards"
 function Nav(){
-    function showCard(){
-         filterData && filterData.map(data=>)
+    const[idx,setIdx]=useState(1)
+    function showCard(props){
+        setIdx(props)
     }
+    const showNav=filterData.map((data)=>(
+        <button onClick={showCard(data.id)}>
+             {data.title}
+        </button>
+    ))
     return (
        <div>
-           <button onClick={showCard}>All</button>
-           <button onClick={showCard}>Development</button>
-           <button onClick={showCard}>Business</button>
-           <button onClick={showCard}>Design</button>
-           <button onClick={showCard}>Lifestyle</button>
+          <div>{showNav}</div>
+          <div>
+              <Cards name={idx}></Cards>
+          </div>
        </div>
-    )dd
+    )
 }
 export default Nav
