@@ -1,22 +1,22 @@
 export const filterData = [
   {
-    id: "1",
+    id: "-1",
     title: "All",
   },
   {
-    id: "2",
+    id: "0",
     title: "Development",
   },
   {
-    id: "3",
+    id: "1",
     title: "Business",
   },
   {
-    id: "4",
+    id: "2",
     title: "Design",
   },
   {
-    id: "5",
+    id: "3",
     title: "Lifestyle",
   },
 ];
