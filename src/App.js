@@ -33,12 +33,12 @@ function App() {
   return (
    <div>
        <div><Head></Head></div>
-       <div className="bg-bg_dark flex flex-col ">
+       <div className="bg-bg_dark min-h-screen flex flex-col ">
           <div>
              <Nav filterData={filterData} setCategory={setCategory}
              category={category}></Nav>
           </div>
-          <div className="flex flex-row">
+          <div className="flex justify-center flex-wrap  items-center w-11/12 max-w-[1200px] min-h-[50vh] mx-auto">
              {
                loading ? <Spinner/> :<Cards course={data} category={category}/>
              }
