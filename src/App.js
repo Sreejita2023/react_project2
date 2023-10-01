@@ -34,7 +34,7 @@ function App() {
    <div>
        <div><Head></Head></div>
        <div className="bg-bg_dark min-h-screen flex flex-col ">
-          <div>
+          <div >
              <Nav filterData={filterData} setCategory={setCategory}
              category={category}></Nav>
           </div>

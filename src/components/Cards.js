@@ -1,8 +1,13 @@
 
+import { useState } from "react"
 import Card from "./Card"
 function Cards(props){
     const courses=props.course
     const category=props.category
+    const [likecourse,setLikecourse]=useState([])
+    function add(){
+        
+    }
     function getcourses(){
         if(category==="All"){
           let arr=[]
@@ -22,7 +27,7 @@ function Cards(props){
         <div className="flex flex-wrap justify-center gap-4 mb-4 ">
            {
              getcourses().map(part =>(
-                <Card key={part.id} course={part}/>
+                <Card key={part.id} course={part} setLikecourse={setLikecourse} likecourse={likecourse}/>
              ))
            }
         </div>

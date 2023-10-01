@@ -1,12 +1,40 @@
 import React from "react"
-function Card(props){
-    
+import { toast } from "react-toastify"
+
+import {FcLike,FcLikePlaceholder } from "react-icons/fc";
+const Card=(props) =>{
+   const likecourse=props.likecourse
+   const setLikecourse=props.setLikecourse
    const course=props.course
-   
+   function clickHandler(){
+    //    main logic(most important part of this project)
+       if(likecourse.includes(course.id)){
+            // agar pehle se hai
+            setLikecourse((prev)=>prev.filter((cid)=>cid!==course.id))
+            toast.warning("liked removed")
+       }
+       else{
+           if(likecourse.length===0){
+             setLikecourse([course.id])
+           }
+           else{
+                 setLikecourse((prev)=>[...prev ,course.id])
+           }
+           toast.success("Liked Successfully");
+       }
+   }
    return (
       <div className="w-[300px] bg-black bg-opacity-40 rounded-md overflow-hidden">
-         <div>
+         <div className="relative">
             <img src={course.image.url}/>
+            <div className="w-[40px] h-[40px] absolute bg-white rounded-full  right-2 bottom-[-10px] grid place-items-center">
+                <button onClick={clickHandler}>
+                    {
+                        likecourse.includes(course.id)?(<FcLike fontSize="1.75rem"/>):(<FcLikePlaceholder fontSize="1.75rem"/>)
+
+                    }
+                </button>
+            </div>
          </div>
          <div className="mx-4 my-5 text-white ">
              <div className=" text-xl mb-2 mr-4 font-semibold">
