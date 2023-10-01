@@ -11,7 +11,16 @@ const Card=(props) =>{
        if(likecourse.includes(course.id)){
             // agar pehle se hai
             setLikecourse((prev)=>prev.filter((cid)=>cid!==course.id))
-            toast.warning("liked removed")
+            toast.warn('Liked removed', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
        }
        else{
            if(likecourse.length===0){
